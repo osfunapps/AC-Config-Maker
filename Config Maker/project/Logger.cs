@@ -7,6 +7,8 @@
         internal static string GetTxt()
         {
             return "Version 1.4" +
+                   "\n- fixed fonts sizes spaces and new lines to make things tidy and clean" +
+                   "\n- fixed order of values" +
                    "\n- added no display support" +
                    "\n- fixed order of mods to: C H W" +
                    "\n\nVersion 1.3" +

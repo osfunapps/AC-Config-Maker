@@ -1,4 +1,6 @@
-﻿namespace AC_Config_Maker
+﻿using System.Windows.Forms;
+
+namespace AC_Config_Maker
 {
     partial class Form1
     {
@@ -43,6 +45,8 @@
             this.fanSpeedBtn = new System.Windows.Forms.Button();
             this.powerBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.acDisplayCB = new System.Windows.Forms.CheckBox();
             this.degreesGB = new System.Windows.Forms.GroupBox();
             this.degreeTypeCB = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,21 +60,19 @@
             this.coldCB = new System.Windows.Forms.CheckBox();
             this.fanSpeedGB = new System.Windows.Forms.GroupBox();
             this.fanSpeedTB = new System.Windows.Forms.TrackBar();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.acDisplayCB = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.degreesGB.SuspendLayout();
             this.modesGB.SuspendLayout();
             this.fanSpeedGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fanSpeedTB)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // foldersRTB
             // 
             this.foldersRTB.AllowDrop = true;
             this.foldersRTB.EnableAutoDragDrop = true;
-            this.foldersRTB.Font = new System.Drawing.Font("Consolas", 13F);
+            this.foldersRTB.Font = new System.Drawing.Font("Consolas", 9F);
             this.foldersRTB.Location = new System.Drawing.Point(15, 18);
             this.foldersRTB.Name = "foldersRTB";
             this.foldersRTB.Size = new System.Drawing.Size(343, 148);
@@ -136,7 +138,7 @@
             // 
             // tempUpBtn
             // 
-            this.tempUpBtn.Location = new System.Drawing.Point(17, 158);
+            this.tempUpBtn.Location = new System.Drawing.Point(120, 156);
             this.tempUpBtn.Name = "tempUpBtn";
             this.tempUpBtn.Size = new System.Drawing.Size(75, 32);
             this.tempUpBtn.TabIndex = 20;
@@ -168,7 +170,7 @@
             // 
             // tempDownBtn
             // 
-            this.tempDownBtn.Location = new System.Drawing.Point(120, 158);
+            this.tempDownBtn.Location = new System.Drawing.Point(17, 156);
             this.tempDownBtn.Name = "tempDownBtn";
             this.tempDownBtn.Size = new System.Drawing.Size(75, 32);
             this.tempDownBtn.TabIndex = 23;
@@ -214,6 +216,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Remote";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.acDisplayCB);
+            this.panel1.Location = new System.Drawing.Point(42, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(133, 42);
+            this.panel1.TabIndex = 26;
+            // 
+            // acDisplayCB
+            // 
+            this.acDisplayCB.AutoSize = true;
+            this.acDisplayCB.Checked = true;
+            this.acDisplayCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.acDisplayCB.Location = new System.Drawing.Point(40, 10);
+            this.acDisplayCB.Name = "acDisplayCB";
+            this.acDisplayCB.Size = new System.Drawing.Size(60, 17);
+            this.acDisplayCB.TabIndex = 3;
+            this.acDisplayCB.Text = "Display";
+            this.acDisplayCB.UseVisualStyleBackColor = true;
+            this.acDisplayCB.CheckedChanged += new System.EventHandler(this.acDisplayCB_CheckedChanged);
+            // 
             // degreesGB
             // 
             this.degreesGB.Controls.Add(this.degreeTypeCB);
@@ -233,6 +258,7 @@
             // degreeTypeCB
             // 
             this.degreeTypeCB.DisplayMember = "C";
+            this.degreeTypeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.degreeTypeCB.FormattingEnabled = true;
             this.degreeTypeCB.Items.AddRange(new object[] {
             "C",
@@ -240,8 +266,9 @@
             this.degreeTypeCB.Location = new System.Drawing.Point(255, 51);
             this.degreeTypeCB.Name = "degreeTypeCB";
             this.degreeTypeCB.Size = new System.Drawing.Size(46, 21);
-            this.degreeTypeCB.TabIndex = 0;
+            this.degreeTypeCB.TabIndex = 1;
             this.degreeTypeCB.ValueMember = "C";
+            this.degreeTypeCB.SelectedIndexChanged += new System.EventHandler(this.degreeTypeCB_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -425,29 +452,6 @@
             this.fanSpeedTB.TabIndex = 0;
             this.fanSpeedTB.Value = 4;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.acDisplayCB);
-            this.panel1.Location = new System.Drawing.Point(42, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(133, 42);
-            this.panel1.TabIndex = 26;
-            // 
-            // acDisplayCB
-            // 
-            this.acDisplayCB.AutoSize = true;
-            this.acDisplayCB.Checked = true;
-            this.acDisplayCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.acDisplayCB.Location = new System.Drawing.Point(40, 10);
-            this.acDisplayCB.Name = "acDisplayCB";
-            this.acDisplayCB.Size = new System.Drawing.Size(60, 17);
-            this.acDisplayCB.TabIndex = 3;
-            this.acDisplayCB.Text = "Display";
-            this.acDisplayCB.UseVisualStyleBackColor = true;
-            this.acDisplayCB.CheckedChanged += new System.EventHandler(this.acDisplayCB_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +470,8 @@
             this.Name = "Form1";
             this.Text = "AC Config Maker";
             this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.degreesGB.ResumeLayout(false);
             this.degreesGB.PerformLayout();
             this.modesGB.ResumeLayout(false);
@@ -473,8 +479,6 @@
             this.fanSpeedGB.ResumeLayout(false);
             this.fanSpeedGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fanSpeedTB)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,10 +512,10 @@
         private System.Windows.Forms.CheckBox coldCB;
         private System.Windows.Forms.GroupBox fanSpeedGB;
         private System.Windows.Forms.TrackBar fanSpeedTB;
-        private System.Windows.Forms.ComboBox degreeTypeCB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox acDisplayCB;
+        public ComboBox degreeTypeCB;
     }
 }
 

@@ -15,6 +15,7 @@ namespace AC_Config_Maker
     public partial class Form1 : Form
     {
         private string FILE_MADE = "File Made!";
+        private string WINDOW_INFO = "Information";
 
         private const char HOT = 'H', COLD = 'C', WIND = 'W';
 
@@ -51,7 +52,7 @@ namespace AC_Config_Maker
         {
             XmlFileWriter xmlFileWriter = new XmlFileWriter(outputFolderTB.Text, foldersRTB.Text, minDegreeDUD.Text, maxDegreeDUD.Text, GetModesList(), fanSpeedTB.Value, degreeTypeCB.Text, acDisplayCB.Checked);
             xmlFileWriter.WriteXml();
-            MessageBox.Show(FILE_MADE);
+            MessageBox.Show(FILE_MADE, WINDOW_INFO);
         }
 
         private List<char> GetModesList()
@@ -109,42 +110,27 @@ namespace AC_Config_Maker
 
         private void Swing_Click(object sender, EventArgs e)
         {
-            if(acDisplayCB.Checked)
                 foldersRTB.AppendText(TextTemplateHandler.SWING_TXT);
-            else
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_SWING_TXT);
         }
 
         private void FanSpeed_Click(object sender, EventArgs e)
         {
-            if(acDisplayCB.Checked)
             foldersRTB.AppendText(TextTemplateHandler.FAN_SPEED_TXT);
-            else
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_FAN_SPEED_TXT);
         }
 
         private void TempUpBtn_Click(object sender, EventArgs e)
         {
-            if (acDisplayCB.Checked)
                 foldersRTB.AppendText(TextTemplateHandler.TEMP_UP_TXT);
-            else
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_TEMP_UP_TXT);
         }
 
         private void TempDownBtn_Click(object sender, EventArgs e)
         {
-            if (acDisplayCB.Checked)
                 foldersRTB.AppendText(TextTemplateHandler.TEMP_DOWN_TXT);
-            else
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_TEMP_DOWN_TXT);
         }
 
         private void modesBtn_Click(object sender, EventArgs e)
         {
-            if (acDisplayCB.Checked)
                 foldersRTB.AppendText(TextTemplateHandler.MODE_TXT);
-            else
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_MODE_TXT);
         }
 
         private void acDisplayCB_CheckedChanged(object sender, EventArgs e)
@@ -159,6 +145,11 @@ namespace AC_Config_Maker
             modesGB.Enabled = @checked;
         }
 
+        private void degreeTypeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -166,10 +157,11 @@ namespace AC_Config_Maker
 
         private void PowerBtn_Click(object sender, EventArgs e)
         {
-            if (!acDisplayCB.Checked)
-                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_POWER_TXT);
-            else
-            {
+            if (!acDisplayCB.Checked) { 
+                foldersRTB.AppendText(TextTemplateHandler.POWER_NO_DISPLAY_1_TXT);
+                foldersRTB.AppendText(TextTemplateHandler.POWER_NO_DISPLAY_2_TXT);
+            }
+            else { 
                 foldersRTB.AppendText(TextTemplateHandler.POWER_1_TXT);
                 foldersRTB.AppendText(TextTemplateHandler.POWER_2_TXT);
             }

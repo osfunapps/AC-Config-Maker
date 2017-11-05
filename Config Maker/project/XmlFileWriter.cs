@@ -51,10 +51,14 @@ namespace AC_Config_Maker
             string[] parsedString = outputXmlString.Split(' ');
             foreach (string nodeVal in parsedString)
             {
-                if (nodeVal.Equals("")) continue;
+                if (nodeVal.Equals("\n")) continue;
+                var strippedNode = nodeVal;
+                if(nodeVal.StartsWith("\n"))
+                    strippedNode = nodeVal.Substring(1);
+                   
                 XmlElement keyNode = document.CreateElement(KEY);
                 keyNode.SetAttribute(TYPE, HEX);
-                keyNode.SetAttribute(NAME, nodeVal);
+                keyNode.SetAttribute(NAME, strippedNode);
                 keysNode.AppendChild(keyNode);
             }
 
@@ -84,20 +88,44 @@ namespace AC_Config_Maker
         private void SetDegreesNodes(XmlDocument document, XmlElement keysNode)
         {
             SetRemoteParams(document, keysNode);
+            bool toReverse = false;
             for (int mode = 0; mode < modesList.Count; mode++)
             {
                 for (int fanSpeed = 1; fanSpeed < fanMaxSpeed+1; fanSpeed++)
                 {
-                    for (int degree = minDegree; degree < maxDegree+1; degree++)
-                    {
-                        XmlElement keyNode = document.CreateElement(KEY);
-                        keyNode.SetAttribute(TYPE, HEX);
-                        keyNode.SetAttribute(NAME, modesList[mode].ToString() + degree+"F"+ fanSpeed);
-                        keysNode.AppendChild(keyNode);
-                    }
+                    if (toReverse)
+                        toReverse = FillNodesInReverse(document, mode, fanSpeed, keysNode);
+                    else
+                        toReverse = FillNodesNormally(document, mode, fanSpeed, keysNode);
+
                 }
             }
         }
+
+        private bool FillNodesNormally(XmlDocument document, int mode, int fanSpeed, XmlElement keysNode)
+        {
+            for (int degree = minDegree; degree < maxDegree + 1; degree++)
+            {
+                XmlElement keyNode = document.CreateElement(KEY);
+                keyNode.SetAttribute(TYPE, HEX);
+                keyNode.SetAttribute(NAME, modesList[mode].ToString() + degree + "F" + fanSpeed);
+                keysNode.AppendChild(keyNode);
+            }
+            return true;
+        }
+
+        private bool FillNodesInReverse(XmlDocument document, int mode, int fanSpeed, XmlElement keysNode)
+        {
+            for (int degree = maxDegree; degree > minDegree-1; degree--)
+            {
+                XmlElement keyNode = document.CreateElement(KEY);
+                keyNode.SetAttribute(TYPE, HEX);
+                keyNode.SetAttribute(NAME, modesList[mode].ToString() + degree + "F" + fanSpeed);
+                keysNode.AppendChild(keyNode);
+            }
+            return false;
+        }
+
 
         private void SetRemoteParams(XmlDocument document, XmlElement keysNode)
         {

@@ -24,10 +24,12 @@ namespace AC_Config_Maker
         private string MAX_DEGREE = "max_degree";
         private string AC_DISPLAY = "ac_display";
         private string degreeType;
+        private bool acDisplayRequired;
 
         public XmlFileWriter
-            (string outputFolder, string outputXmlString, string minDegree, string maxDegree, List<char> modesList, int fanMaxSpeed, string degreeType)
+            (string outputFolder, string outputXmlString, string minDegree, string maxDegree, List<char> modesList, int fanMaxSpeed, string degreeType, bool acDisplayRequired)
         {
+            this.acDisplayRequired = acDisplayRequired;
             this.minDegree = int.Parse(minDegree);
             this.maxDegree = int.Parse(maxDegree);
             this.modesList = modesList;
@@ -44,6 +46,8 @@ namespace AC_Config_Maker
             XmlElement remoteNode = document.CreateElement(REMOTE);
             XmlElement keysNode = document.CreateElement(KEYS);
             outputXmlString.Trim();
+
+
             string[] parsedString = outputXmlString.Split(' ');
             foreach (string nodeVal in parsedString)
             {
@@ -53,8 +57,12 @@ namespace AC_Config_Maker
                 keyNode.SetAttribute(NAME, nodeVal);
                 keysNode.AppendChild(keyNode);
             }
-            SetDegreesNodes(document, keysNode);
-            SetDisplayNode(document, keysNode);
+
+
+            if (acDisplayRequired) {
+                SetDegreesNodes(document, keysNode);
+                SetDisplayNode(document, keysNode);
+            }
             remoteNode.AppendChild(keysNode);
             document.AppendChild(remoteNode);
 

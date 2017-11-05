@@ -6,7 +6,10 @@
 
         internal static string GetTxt()
         {
-            return "Version 1.3" +
+            return "Version 1.4" +
+                   "\n- added no display support" +
+                   "\n- fixed order of mods to: C H W" +
+                   "\n\nVersion 1.3" +
                    "\n- ac layout disply fixed to it's right location" +
                    "\n\nVersion 1.2" +
                    "\n- modes are now marked with H C and W" +

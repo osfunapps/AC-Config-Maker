@@ -36,31 +36,34 @@
             this.irCodesFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.outputFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logBtn = new System.Windows.Forms.LinkLabel();
-            this.navigationBtn = new System.Windows.Forms.Button();
-            this.numbersBtn = new System.Windows.Forms.Button();
-            this.colorsBrn = new System.Windows.Forms.Button();
-            this.channelBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.volumeBtn = new System.Windows.Forms.Button();
+            this.tempUpBtn = new System.Windows.Forms.Button();
+            this.swingBtn = new System.Windows.Forms.Button();
+            this.modesBtn = new System.Windows.Forms.Button();
+            this.tempDownBtn = new System.Windows.Forms.Button();
+            this.fanSpeedBtn = new System.Windows.Forms.Button();
+            this.powerBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.degreesGB = new System.Windows.Forms.GroupBox();
+            this.degreeTypeCB = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.maxDegreeDUD = new System.Windows.Forms.DomainUpDown();
             this.minDegreeDUD = new System.Windows.Forms.DomainUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.modesGB = new System.Windows.Forms.GroupBox();
             this.windCB = new System.Windows.Forms.CheckBox();
             this.hotCB = new System.Windows.Forms.CheckBox();
             this.coldCB = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.fanSpeedGB = new System.Windows.Forms.GroupBox();
             this.fanSpeedTB = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.degreeTypeCB = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.acDisplayCB = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.degreesGB.SuspendLayout();
+            this.modesGB.SuspendLayout();
+            this.fanSpeedGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fanSpeedTB)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // foldersRTB
@@ -131,78 +134,79 @@
             this.logBtn.Text = "LOG";
             this.logBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.logBtn_LinkClicked);
             // 
-            // navigationBtn
+            // tempUpBtn
             // 
-            this.navigationBtn.Location = new System.Drawing.Point(17, 118);
-            this.navigationBtn.Name = "navigationBtn";
-            this.navigationBtn.Size = new System.Drawing.Size(75, 32);
-            this.navigationBtn.TabIndex = 20;
-            this.navigationBtn.Text = "Temp Up";
-            this.navigationBtn.UseVisualStyleBackColor = true;
-            this.navigationBtn.Click += new System.EventHandler(this.navigationBtn_Click);
+            this.tempUpBtn.Location = new System.Drawing.Point(17, 158);
+            this.tempUpBtn.Name = "tempUpBtn";
+            this.tempUpBtn.Size = new System.Drawing.Size(75, 32);
+            this.tempUpBtn.TabIndex = 20;
+            this.tempUpBtn.Text = "Temp Up";
+            this.tempUpBtn.UseVisualStyleBackColor = true;
+            this.tempUpBtn.Click += new System.EventHandler(this.TempUpBtn_Click);
             // 
-            // numbersBtn
+            // swingBtn
             // 
-            this.numbersBtn.Location = new System.Drawing.Point(67, 219);
-            this.numbersBtn.Name = "numbersBtn";
-            this.numbersBtn.Size = new System.Drawing.Size(75, 30);
-            this.numbersBtn.TabIndex = 21;
-            this.numbersBtn.Text = "Swing";
-            this.numbersBtn.UseVisualStyleBackColor = true;
-            this.numbersBtn.Click += new System.EventHandler(this.Numbers_Click);
+            this.swingBtn.Location = new System.Drawing.Point(120, 209);
+            this.swingBtn.Name = "swingBtn";
+            this.swingBtn.Size = new System.Drawing.Size(75, 30);
+            this.swingBtn.TabIndex = 21;
+            this.swingBtn.Text = "Swing";
+            this.swingBtn.UseVisualStyleBackColor = true;
+            this.swingBtn.Click += new System.EventHandler(this.Swing_Click);
             // 
-            // colorsBrn
+            // modesBtn
             // 
-            this.colorsBrn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.colorsBrn.ForeColor = System.Drawing.Color.Transparent;
-            this.colorsBrn.Location = new System.Drawing.Point(74, 68);
-            this.colorsBrn.Name = "colorsBrn";
-            this.colorsBrn.Size = new System.Drawing.Size(63, 37);
-            this.colorsBrn.TabIndex = 22;
-            this.colorsBrn.Text = "Mode";
-            this.colorsBrn.UseVisualStyleBackColor = false;
-            this.colorsBrn.Click += new System.EventHandler(this.colorsBrn_Click);
+            this.modesBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.modesBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.modesBtn.Location = new System.Drawing.Point(74, 110);
+            this.modesBtn.Name = "modesBtn";
+            this.modesBtn.Size = new System.Drawing.Size(63, 37);
+            this.modesBtn.TabIndex = 22;
+            this.modesBtn.Text = "Mode";
+            this.modesBtn.UseVisualStyleBackColor = false;
+            this.modesBtn.Click += new System.EventHandler(this.modesBtn_Click);
             // 
-            // channelBtn
+            // tempDownBtn
             // 
-            this.channelBtn.Location = new System.Drawing.Point(120, 118);
-            this.channelBtn.Name = "channelBtn";
-            this.channelBtn.Size = new System.Drawing.Size(75, 32);
-            this.channelBtn.TabIndex = 23;
-            this.channelBtn.Text = "Temp Down";
-            this.channelBtn.UseVisualStyleBackColor = true;
-            this.channelBtn.Click += new System.EventHandler(this.channelBtn_Click);
+            this.tempDownBtn.Location = new System.Drawing.Point(120, 158);
+            this.tempDownBtn.Name = "tempDownBtn";
+            this.tempDownBtn.Size = new System.Drawing.Size(75, 32);
+            this.tempDownBtn.TabIndex = 23;
+            this.tempDownBtn.Text = "Temp Down";
+            this.tempDownBtn.UseVisualStyleBackColor = true;
+            this.tempDownBtn.Click += new System.EventHandler(this.TempDownBtn_Click);
             // 
-            // button2
+            // fanSpeedBtn
             // 
-            this.button2.Location = new System.Drawing.Point(66, 160);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 47);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Fan Speed";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.fanSpeedBtn.Location = new System.Drawing.Point(17, 205);
+            this.fanSpeedBtn.Name = "fanSpeedBtn";
+            this.fanSpeedBtn.Size = new System.Drawing.Size(75, 47);
+            this.fanSpeedBtn.TabIndex = 24;
+            this.fanSpeedBtn.Text = "Fan Speed";
+            this.fanSpeedBtn.UseVisualStyleBackColor = true;
+            this.fanSpeedBtn.Click += new System.EventHandler(this.FanSpeed_Click);
             // 
-            // volumeBtn
+            // powerBtn
             // 
-            this.volumeBtn.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.volumeBtn.BackColor = System.Drawing.Color.Red;
-            this.volumeBtn.Location = new System.Drawing.Point(17, 23);
-            this.volumeBtn.Name = "volumeBtn";
-            this.volumeBtn.Size = new System.Drawing.Size(60, 36);
-            this.volumeBtn.TabIndex = 25;
-            this.volumeBtn.Text = "Power";
-            this.volumeBtn.UseVisualStyleBackColor = false;
-            this.volumeBtn.Click += new System.EventHandler(this.volumeBtn_Click);
+            this.powerBtn.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.powerBtn.BackColor = System.Drawing.Color.Red;
+            this.powerBtn.Location = new System.Drawing.Point(17, 68);
+            this.powerBtn.Name = "powerBtn";
+            this.powerBtn.Size = new System.Drawing.Size(60, 36);
+            this.powerBtn.TabIndex = 25;
+            this.powerBtn.Text = "Power";
+            this.powerBtn.UseVisualStyleBackColor = false;
+            this.powerBtn.Click += new System.EventHandler(this.PowerBtn_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.numbersBtn);
-            this.groupBox2.Controls.Add(this.volumeBtn);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.colorsBrn);
-            this.groupBox2.Controls.Add(this.channelBtn);
-            this.groupBox2.Controls.Add(this.navigationBtn);
+            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Controls.Add(this.swingBtn);
+            this.groupBox2.Controls.Add(this.powerBtn);
+            this.groupBox2.Controls.Add(this.fanSpeedBtn);
+            this.groupBox2.Controls.Add(this.modesBtn);
+            this.groupBox2.Controls.Add(this.tempDownBtn);
+            this.groupBox2.Controls.Add(this.tempUpBtn);
             this.groupBox2.Location = new System.Drawing.Point(364, 18);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(213, 266);
@@ -210,21 +214,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Remote";
             // 
-            // groupBox1
+            // degreesGB
             // 
-            this.groupBox1.Controls.Add(this.degreeTypeCB);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.maxDegreeDUD);
-            this.groupBox1.Controls.Add(this.minDegreeDUD);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 172);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 106);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Degrees";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.degreesGB.Controls.Add(this.degreeTypeCB);
+            this.degreesGB.Controls.Add(this.label4);
+            this.degreesGB.Controls.Add(this.maxDegreeDUD);
+            this.degreesGB.Controls.Add(this.minDegreeDUD);
+            this.degreesGB.Controls.Add(this.label3);
+            this.degreesGB.Controls.Add(this.label1);
+            this.degreesGB.Location = new System.Drawing.Point(15, 172);
+            this.degreesGB.Name = "degreesGB";
+            this.degreesGB.Size = new System.Drawing.Size(343, 106);
+            this.degreesGB.TabIndex = 30;
+            this.degreesGB.TabStop = false;
+            this.degreesGB.Text = "Degrees";
+            this.degreesGB.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // degreeTypeCB
+            // 
+            this.degreeTypeCB.DisplayMember = "C";
+            this.degreeTypeCB.FormattingEnabled = true;
+            this.degreeTypeCB.Items.AddRange(new object[] {
+            "C",
+            "F"});
+            this.degreeTypeCB.Location = new System.Drawing.Point(255, 51);
+            this.degreeTypeCB.Name = "degreeTypeCB";
+            this.degreeTypeCB.Size = new System.Drawing.Size(46, 21);
+            this.degreeTypeCB.TabIndex = 0;
+            this.degreeTypeCB.ValueMember = "C";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(210, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Type";
             // 
             // maxDegreeDUD
             // 
@@ -330,17 +356,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Max";
             // 
-            // groupBox3
+            // modesGB
             // 
-            this.groupBox3.Controls.Add(this.windCB);
-            this.groupBox3.Controls.Add(this.hotCB);
-            this.groupBox3.Controls.Add(this.coldCB);
-            this.groupBox3.Location = new System.Drawing.Point(15, 287);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(343, 75);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Modes";
+            this.modesGB.Controls.Add(this.windCB);
+            this.modesGB.Controls.Add(this.hotCB);
+            this.modesGB.Controls.Add(this.coldCB);
+            this.modesGB.Location = new System.Drawing.Point(15, 287);
+            this.modesGB.Name = "modesGB";
+            this.modesGB.Size = new System.Drawing.Size(343, 75);
+            this.modesGB.TabIndex = 31;
+            this.modesGB.TabStop = false;
+            this.modesGB.Text = "Modes";
             // 
             // windCB
             // 
@@ -378,15 +404,15 @@
             this.coldCB.Text = "Cold";
             this.coldCB.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // fanSpeedGB
             // 
-            this.groupBox4.Controls.Add(this.fanSpeedTB);
-            this.groupBox4.Location = new System.Drawing.Point(364, 289);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(213, 73);
-            this.groupBox4.TabIndex = 32;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Fan Speed Max";
+            this.fanSpeedGB.Controls.Add(this.fanSpeedTB);
+            this.fanSpeedGB.Location = new System.Drawing.Point(364, 289);
+            this.fanSpeedGB.Name = "fanSpeedGB";
+            this.fanSpeedGB.Size = new System.Drawing.Size(213, 73);
+            this.fanSpeedGB.TabIndex = 32;
+            this.fanSpeedGB.TabStop = false;
+            this.fanSpeedGB.Text = "Fan Speed Max";
             // 
             // fanSpeedTB
             // 
@@ -399,35 +425,37 @@
             this.fanSpeedTB.TabIndex = 0;
             this.fanSpeedTB.Value = 4;
             // 
-            // label4
+            // panel1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(210, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Type";
+            this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.acDisplayCB);
+            this.panel1.Location = new System.Drawing.Point(42, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(133, 42);
+            this.panel1.TabIndex = 26;
             // 
-            // degreeTypeCB
+            // acDisplayCB
             // 
-            this.degreeTypeCB.DisplayMember = "C";
-            this.degreeTypeCB.FormattingEnabled = true;
-            this.degreeTypeCB.Items.AddRange(new object[] {"C","F"});
-            this.degreeTypeCB.SelectedIndex = 0;
-            this.degreeTypeCB.Location = new System.Drawing.Point(255, 51);
-            this.degreeTypeCB.Name = "degreeTypeCB";
-            this.degreeTypeCB.Size = new System.Drawing.Size(46, 21);
-            this.degreeTypeCB.TabIndex = 0;
-            this.degreeTypeCB.ValueMember = "C";
+            this.acDisplayCB.AutoSize = true;
+            this.acDisplayCB.Checked = true;
+            this.acDisplayCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.acDisplayCB.Location = new System.Drawing.Point(40, 10);
+            this.acDisplayCB.Name = "acDisplayCB";
+            this.acDisplayCB.Size = new System.Drawing.Size(60, 17);
+            this.acDisplayCB.TabIndex = 3;
+            this.acDisplayCB.Text = "Display";
+            this.acDisplayCB.UseVisualStyleBackColor = true;
+            this.acDisplayCB.CheckedChanged += new System.EventHandler(this.acDisplayCB_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 490);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.fanSpeedGB);
+            this.Controls.Add(this.modesGB);
+            this.Controls.Add(this.degreesGB);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.outputFolderBrowseBtn);
@@ -438,13 +466,15 @@
             this.Name = "Form1";
             this.Text = "AC Config Maker";
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.degreesGB.ResumeLayout(false);
+            this.degreesGB.PerformLayout();
+            this.modesGB.ResumeLayout(false);
+            this.modesGB.PerformLayout();
+            this.fanSpeedGB.ResumeLayout(false);
+            this.fanSpeedGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fanSpeedTB)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,26 +490,28 @@
         private System.Windows.Forms.OpenFileDialog irCodesFileDialog;
         private System.Windows.Forms.FolderBrowserDialog outputFolderDialog;
         private System.Windows.Forms.LinkLabel logBtn;
-        private System.Windows.Forms.Button navigationBtn;
-        private System.Windows.Forms.Button numbersBtn;
-        private System.Windows.Forms.Button colorsBrn;
-        private System.Windows.Forms.Button channelBtn;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button volumeBtn;
+        private System.Windows.Forms.Button tempUpBtn;
+        private System.Windows.Forms.Button swingBtn;
+        private System.Windows.Forms.Button modesBtn;
+        private System.Windows.Forms.Button tempDownBtn;
+        private System.Windows.Forms.Button fanSpeedBtn;
+        private System.Windows.Forms.Button powerBtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox degreesGB;
         private System.Windows.Forms.DomainUpDown maxDegreeDUD;
         private System.Windows.Forms.DomainUpDown minDegreeDUD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox modesGB;
         private System.Windows.Forms.CheckBox windCB;
         private System.Windows.Forms.CheckBox hotCB;
         private System.Windows.Forms.CheckBox coldCB;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox fanSpeedGB;
         private System.Windows.Forms.TrackBar fanSpeedTB;
         private System.Windows.Forms.ComboBox degreeTypeCB;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox acDisplayCB;
     }
 }
 

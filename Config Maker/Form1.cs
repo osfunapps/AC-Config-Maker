@@ -49,7 +49,7 @@ namespace AC_Config_Maker
 
         private void GoBtn_Click(object sender, EventArgs e)
         {
-            XmlFileWriter xmlFileWriter = new XmlFileWriter(outputFolderTB.Text, foldersRTB.Text, minDegreeDUD.Text, maxDegreeDUD.Text, GetModesList(), fanSpeedTB.Value, degreeTypeCB.Text);
+            XmlFileWriter xmlFileWriter = new XmlFileWriter(outputFolderTB.Text, foldersRTB.Text, minDegreeDUD.Text, maxDegreeDUD.Text, GetModesList(), fanSpeedTB.Value, degreeTypeCB.Text, acDisplayCB.Checked);
             xmlFileWriter.WriteXml();
             MessageBox.Show(FILE_MADE);
         }
@@ -58,10 +58,12 @@ namespace AC_Config_Maker
         {
             List<char> modesList = new List<char>();
 
-            if (hotCB.Checked)
-                modesList.Add(HOT);
             if (coldCB.Checked)
                 modesList.Add(COLD);
+
+            if (hotCB.Checked)
+                modesList.Add(HOT);
+
             if (windCB.Checked)
                 modesList.Add(WIND);
             return modesList;
@@ -105,30 +107,56 @@ namespace AC_Config_Maker
 
 
 
-        private void Numbers_Click(object sender, EventArgs e)
+        private void Swing_Click(object sender, EventArgs e)
         {
-            foldersRTB.AppendText(TextTemplateHandler.SWING_TXT);
+            if(acDisplayCB.Checked)
+                foldersRTB.AppendText(TextTemplateHandler.SWING_TXT);
+            else
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_SWING_TXT);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void FanSpeed_Click(object sender, EventArgs e)
         {
+            if(acDisplayCB.Checked)
             foldersRTB.AppendText(TextTemplateHandler.FAN_SPEED_TXT);
+            else
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_FAN_SPEED_TXT);
         }
 
-        private void navigationBtn_Click(object sender, EventArgs e)
+        private void TempUpBtn_Click(object sender, EventArgs e)
         {
-            foldersRTB.AppendText(TextTemplateHandler.TEMP_UP_TXT);
-
+            if (acDisplayCB.Checked)
+                foldersRTB.AppendText(TextTemplateHandler.TEMP_UP_TXT);
+            else
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_TEMP_UP_TXT);
         }
 
-        private void channelBtn_Click(object sender, EventArgs e)
+        private void TempDownBtn_Click(object sender, EventArgs e)
         {
-            foldersRTB.AppendText(TextTemplateHandler.TEMP_DOWN_TXT);
+            if (acDisplayCB.Checked)
+                foldersRTB.AppendText(TextTemplateHandler.TEMP_DOWN_TXT);
+            else
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_TEMP_DOWN_TXT);
         }
 
-        private void colorsBrn_Click(object sender, EventArgs e)
+        private void modesBtn_Click(object sender, EventArgs e)
         {
-            foldersRTB.AppendText(TextTemplateHandler.MODE_TXT);
+            if (acDisplayCB.Checked)
+                foldersRTB.AppendText(TextTemplateHandler.MODE_TXT);
+            else
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_MODE_TXT);
+        }
+
+        private void acDisplayCB_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableGBs(acDisplayCB.Checked);
+        }
+
+        private void EnableGBs(bool @checked)
+        {
+            degreesGB.Enabled = @checked;
+            fanSpeedGB.Enabled = @checked;
+            modesGB.Enabled = @checked;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -136,10 +164,15 @@ namespace AC_Config_Maker
 
         }
 
-        private void volumeBtn_Click(object sender, EventArgs e)
+        private void PowerBtn_Click(object sender, EventArgs e)
         {
-            foldersRTB.AppendText(TextTemplateHandler.POWER_1_TXT);
-            foldersRTB.AppendText(TextTemplateHandler.POWER_2_TXT);
+            if (!acDisplayCB.Checked)
+                foldersRTB.AppendText(TextTemplateHandler.NO_DISPLAY_POWER_TXT);
+            else
+            {
+                foldersRTB.AppendText(TextTemplateHandler.POWER_1_TXT);
+                foldersRTB.AppendText(TextTemplateHandler.POWER_2_TXT);
+            }
         }
 
     }

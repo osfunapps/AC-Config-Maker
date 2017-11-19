@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AC_Config_Maker.Properties;
 using Config_Maker.project;
+using Config_Maker.Properties;
 
 namespace AC_Config_Maker
 {
@@ -17,11 +19,12 @@ namespace AC_Config_Maker
         private string FILE_MADE = "File Made!";
         private string WINDOW_INFO = "Information";
 
-        private const char HOT = 'H', COLD = 'C', WIND = 'W';
+        public static char HOT = 'H', COLD = 'C', WIND = 'W', AI = 'A';
 
         public Form1()
         {
             InitializeComponent();
+            LoadParams();
         }
 
         private void foldersRTB_TextChanged(object sender, EventArgs e)
@@ -50,9 +53,39 @@ namespace AC_Config_Maker
 
         private void GoBtn_Click(object sender, EventArgs e)
         {
-            XmlFileWriter xmlFileWriter = new XmlFileWriter(outputFolderTB.Text, foldersRTB.Text, minDegreeDUD.Text, maxDegreeDUD.Text, GetModesList(), fanSpeedTB.Value, degreeTypeCB.Text, acDisplayCB.Checked);
+            SaveParams();
+            XmlFileWriter xmlFileWriter = new XmlFileWriter(outputFolderTB.Text, foldersRTB.Text, minDegreeDUD.Text, maxDegreeDUD.Text, GetModesList(), fanSpeedTB.Value, degreeTypeCB.Text, acDisplayCB.Checked, aiCB.Checked);
             xmlFileWriter.WriteXml();
             MessageBox.Show(FILE_MADE, WINDOW_INFO);
+        }
+
+        private void SaveParams()
+        {
+            Settings.Default.Upgrade();
+            Settings.Default.windChecked = windCB.Checked;
+            Settings.Default.hotChecked = hotCB.Checked;
+            Settings.Default.coldChecked = coldCB.Checked;
+            Settings.Default.aiChecked = aiCB.Checked;
+            Settings.Default.minDegree = minDegreeDUD.Text;
+            Settings.Default.maxDegree = maxDegreeDUD.Text;
+            Settings.Default.fanSpeed = fanSpeedTB.Value;
+            Settings.Default.outputFolderPath = outputFolderTB.Text;
+            Settings.Default.degreeType = degreeTypeCB.Text;
+            Settings.Default.Save();
+        }
+
+
+        private void LoadParams()
+        {
+            windCB.Checked = Settings.Default.windChecked;
+            hotCB.Checked = Settings.Default.hotChecked;
+            coldCB.Checked = Settings.Default.coldChecked;
+            aiCB.Checked = Settings.Default.aiChecked;
+            minDegreeDUD.Text = Settings.Default.minDegree;
+            maxDegreeDUD.Text = Settings.Default.maxDegree;
+            fanSpeedTB.Value = Settings.Default.fanSpeed;
+            outputFolderTB.Text = Settings.Default.outputFolderPath;
+            degreeTypeCB.Text = Settings.Default.degreeType;
         }
 
         private List<char> GetModesList()
@@ -67,6 +100,9 @@ namespace AC_Config_Maker
 
             if (windCB.Checked)
                 modesList.Add(WIND);
+
+            if (aiCB.Checked)
+                modesList.Add(AI);
             return modesList;
         }
 

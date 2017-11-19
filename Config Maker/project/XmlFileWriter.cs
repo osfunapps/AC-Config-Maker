@@ -25,10 +25,12 @@ namespace AC_Config_Maker
         private string AC_DISPLAY = "ac_display";
         private string degreeType;
         private bool acDisplayRequired;
+        private bool _aiRequired;
 
         public XmlFileWriter
-            (string outputFolder, string outputXmlString, string minDegree, string maxDegree, List<char> modesList, int fanMaxSpeed, string degreeType, bool acDisplayRequired)
+            (string outputFolder, string outputXmlString, string minDegree, string maxDegree, List<char> modesList, int fanMaxSpeed, string degreeType, bool acDisplayRequired, bool aiRequired)
         {
+            _aiRequired = aiRequired;
             this.acDisplayRequired = acDisplayRequired;
             this.minDegree = int.Parse(minDegree);
             this.maxDegree = int.Parse(maxDegree);
@@ -66,7 +68,10 @@ namespace AC_Config_Maker
             if (acDisplayRequired) {
                 SetDegreesNodes(document, keysNode);
                 SetDisplayNode(document, keysNode);
+                SetAiNodes(document, keysNode);
+                SetWindNodes(document, keysNode);
             }
+
             remoteNode.AppendChild(keysNode);
             document.AppendChild(remoteNode);
 
@@ -74,6 +79,34 @@ namespace AC_Config_Maker
             if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
             document.Save(outputPath +"\\config.xml");
             System.Console.WriteLine("done! wrote to: "+ outputPath);
+        }
+
+        private void SetWindNodes(XmlDocument document, XmlElement keysNode)
+        {
+            for (int fanSpeed = 1; fanSpeed < fanMaxSpeed+1; fanSpeed++)
+            {
+                XmlElement windNode = document.CreateElement(KEY);
+                windNode.SetAttribute(TYPE, HEX);
+                windNode.SetAttribute(NAME, Form1.WIND +"F"+ fanSpeed);
+                keysNode.AppendChild(windNode);
+            }
+        }
+
+        private void SetAiNodes(XmlDocument document, XmlElement keysNode)
+        {
+            if(!_aiRequired) return;
+
+            for (int i = 2; i > -3 ; i--)
+            {
+                XmlElement aiNode = document.CreateElement(KEY);
+                aiNode.SetAttribute(TYPE, HEX);
+                string num = i.ToString();
+                if (i > 0)
+                    num = "+" + num;
+                aiNode.SetAttribute(NAME, TextTemplateHandler.AI_TXT + num);
+                keysNode.AppendChild(aiNode);
+            }
+            
         }
 
         private void SetDisplayNode(XmlDocument document, XmlElement keysNode)
@@ -89,7 +122,10 @@ namespace AC_Config_Maker
         {
             SetRemoteParams(document, keysNode);
             bool toReverse = false;
-            for (int mode = 0; mode < modesList.Count; mode++)
+            int degreesModes = 0;
+            if (modesList.Contains(Form1.HOT))degreesModes++;
+            if (modesList.Contains(Form1.COLD))degreesModes++;
+            for (int mode = 0; mode < degreesModes; mode++)
             {
                 for (int fanSpeed = 1; fanSpeed < fanMaxSpeed+1; fanSpeed++)
                 {

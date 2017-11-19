@@ -11,6 +11,9 @@
         public static string POWER_1_TXT = SCREEN_ELEMENT_TAG + "power_C25F3_1 \n";
         public static string POWER_2_TXT = "power_C25F3_2 \n";
 
+        public static string AI_TXT = "AI";
+        public static string WIND_TXT = "wind \n";
+
         //modes
         public static string MODES = "modes";
         public static string COLD = "cold";

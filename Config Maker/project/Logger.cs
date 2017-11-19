@@ -6,7 +6,10 @@
 
         internal static string GetTxt()
         {
-            return "Version 1.4" +
+            return "Version 1.5" +
+                   "\n- added new modes" +
+                   "\n- fixed issues regarding the new modes" +
+                   "\n\nVersion 1.4" +
                    "\n- fixed fonts sizes spaces and new lines to make things tidy and clean" +
                    "\n- fixed order of values" +
                    "\n- added no display support" +

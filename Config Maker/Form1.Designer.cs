@@ -60,6 +60,7 @@ namespace AC_Config_Maker
             this.coldCB = new System.Windows.Forms.CheckBox();
             this.fanSpeedGB = new System.Windows.Forms.GroupBox();
             this.fanSpeedTB = new System.Windows.Forms.TrackBar();
+            this.aiCB = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.degreesGB.SuspendLayout();
@@ -385,6 +386,7 @@ namespace AC_Config_Maker
             // 
             // modesGB
             // 
+            this.modesGB.Controls.Add(this.aiCB);
             this.modesGB.Controls.Add(this.windCB);
             this.modesGB.Controls.Add(this.hotCB);
             this.modesGB.Controls.Add(this.coldCB);
@@ -400,7 +402,7 @@ namespace AC_Config_Maker
             this.windCB.AutoSize = true;
             this.windCB.Checked = true;
             this.windCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.windCB.Location = new System.Drawing.Point(216, 32);
+            this.windCB.Location = new System.Drawing.Point(184, 32);
             this.windCB.Name = "windCB";
             this.windCB.Size = new System.Drawing.Size(51, 17);
             this.windCB.TabIndex = 2;
@@ -412,7 +414,7 @@ namespace AC_Config_Maker
             this.hotCB.AutoSize = true;
             this.hotCB.Checked = true;
             this.hotCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hotCB.Location = new System.Drawing.Point(152, 32);
+            this.hotCB.Location = new System.Drawing.Point(120, 32);
             this.hotCB.Name = "hotCB";
             this.hotCB.Size = new System.Drawing.Size(43, 17);
             this.hotCB.TabIndex = 1;
@@ -424,7 +426,7 @@ namespace AC_Config_Maker
             this.coldCB.AutoSize = true;
             this.coldCB.Checked = true;
             this.coldCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.coldCB.Location = new System.Drawing.Point(83, 32);
+            this.coldCB.Location = new System.Drawing.Point(51, 32);
             this.coldCB.Name = "coldCB";
             this.coldCB.Size = new System.Drawing.Size(47, 17);
             this.coldCB.TabIndex = 0;
@@ -445,12 +447,24 @@ namespace AC_Config_Maker
             // 
             this.fanSpeedTB.LargeChange = 1;
             this.fanSpeedTB.Location = new System.Drawing.Point(24, 19);
-            this.fanSpeedTB.Maximum = 4;
+            this.fanSpeedTB.Maximum = 7;
             this.fanSpeedTB.Minimum = 1;
             this.fanSpeedTB.Name = "fanSpeedTB";
             this.fanSpeedTB.Size = new System.Drawing.Size(168, 45);
             this.fanSpeedTB.TabIndex = 0;
             this.fanSpeedTB.Value = 4;
+            // 
+            // aiCB
+            // 
+            this.aiCB.AutoSize = true;
+            this.aiCB.Checked = true;
+            this.aiCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.aiCB.Location = new System.Drawing.Point(252, 32);
+            this.aiCB.Name = "aiCB";
+            this.aiCB.Size = new System.Drawing.Size(36, 17);
+            this.aiCB.TabIndex = 3;
+            this.aiCB.Text = "AI";
+            this.aiCB.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -516,6 +530,7 @@ namespace AC_Config_Maker
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox acDisplayCB;
         public ComboBox degreeTypeCB;
+        private CheckBox aiCB;
     }
 }
 

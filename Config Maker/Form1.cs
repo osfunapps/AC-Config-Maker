@@ -181,6 +181,11 @@ namespace AC_Config_Maker
             modesGB.Enabled = @checked;
         }
 
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void degreeTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
 

@@ -55,12 +55,19 @@ namespace AC_Config_Maker
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.modesGB = new System.Windows.Forms.GroupBox();
+            this.aiCB = new System.Windows.Forms.CheckBox();
             this.windCB = new System.Windows.Forms.CheckBox();
             this.hotCB = new System.Windows.Forms.CheckBox();
             this.coldCB = new System.Windows.Forms.CheckBox();
             this.fanSpeedGB = new System.Windows.Forms.GroupBox();
             this.fanSpeedTB = new System.Windows.Forms.TrackBar();
-            this.aiCB = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.degreesGB.SuspendLayout();
@@ -83,7 +90,7 @@ namespace AC_Config_Maker
             // 
             // GoBtn
             // 
-            this.GoBtn.Location = new System.Drawing.Point(251, 419);
+            this.GoBtn.Location = new System.Drawing.Point(251, 437);
             this.GoBtn.Name = "GoBtn";
             this.GoBtn.Size = new System.Drawing.Size(107, 55);
             this.GoBtn.TabIndex = 7;
@@ -93,7 +100,7 @@ namespace AC_Config_Maker
             // 
             // outputFolderBrowseBtn
             // 
-            this.outputFolderBrowseBtn.Location = new System.Drawing.Point(433, 380);
+            this.outputFolderBrowseBtn.Location = new System.Drawing.Point(433, 398);
             this.outputFolderBrowseBtn.Name = "outputFolderBrowseBtn";
             this.outputFolderBrowseBtn.Size = new System.Drawing.Size(79, 25);
             this.outputFolderBrowseBtn.TabIndex = 12;
@@ -104,7 +111,7 @@ namespace AC_Config_Maker
             // outputFolderTB
             // 
             this.outputFolderTB.AllowDrop = true;
-            this.outputFolderTB.Location = new System.Drawing.Point(156, 382);
+            this.outputFolderTB.Location = new System.Drawing.Point(156, 400);
             this.outputFolderTB.Name = "outputFolderTB";
             this.outputFolderTB.Size = new System.Drawing.Size(271, 20);
             this.outputFolderTB.TabIndex = 11;
@@ -115,7 +122,7 @@ namespace AC_Config_Maker
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 384);
+            this.label2.Location = new System.Drawing.Point(77, 402);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 10;
@@ -129,7 +136,7 @@ namespace AC_Config_Maker
             // logBtn
             // 
             this.logBtn.AutoSize = true;
-            this.logBtn.Location = new System.Drawing.Point(548, 461);
+            this.logBtn.Location = new System.Drawing.Point(548, 479);
             this.logBtn.Name = "logBtn";
             this.logBtn.Size = new System.Drawing.Size(29, 13);
             this.logBtn.TabIndex = 19;
@@ -392,10 +399,22 @@ namespace AC_Config_Maker
             this.modesGB.Controls.Add(this.coldCB);
             this.modesGB.Location = new System.Drawing.Point(15, 287);
             this.modesGB.Name = "modesGB";
-            this.modesGB.Size = new System.Drawing.Size(343, 75);
+            this.modesGB.Size = new System.Drawing.Size(343, 93);
             this.modesGB.TabIndex = 31;
             this.modesGB.TabStop = false;
             this.modesGB.Text = "Modes";
+            // 
+            // aiCB
+            // 
+            this.aiCB.AutoSize = true;
+            this.aiCB.Checked = true;
+            this.aiCB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.aiCB.Location = new System.Drawing.Point(252, 32);
+            this.aiCB.Name = "aiCB";
+            this.aiCB.Size = new System.Drawing.Size(36, 17);
+            this.aiCB.TabIndex = 3;
+            this.aiCB.Text = "AI";
+            this.aiCB.UseVisualStyleBackColor = true;
             // 
             // windCB
             // 
@@ -435,10 +454,17 @@ namespace AC_Config_Maker
             // 
             // fanSpeedGB
             // 
+            this.fanSpeedGB.Controls.Add(this.label11);
+            this.fanSpeedGB.Controls.Add(this.label9);
+            this.fanSpeedGB.Controls.Add(this.label10);
+            this.fanSpeedGB.Controls.Add(this.label7);
+            this.fanSpeedGB.Controls.Add(this.label8);
+            this.fanSpeedGB.Controls.Add(this.label6);
+            this.fanSpeedGB.Controls.Add(this.label5);
             this.fanSpeedGB.Controls.Add(this.fanSpeedTB);
             this.fanSpeedGB.Location = new System.Drawing.Point(364, 289);
             this.fanSpeedGB.Name = "fanSpeedGB";
-            this.fanSpeedGB.Size = new System.Drawing.Size(213, 73);
+            this.fanSpeedGB.Size = new System.Drawing.Size(213, 91);
             this.fanSpeedGB.TabIndex = 32;
             this.fanSpeedGB.TabStop = false;
             this.fanSpeedGB.Text = "Fan Speed Max";
@@ -452,25 +478,85 @@ namespace AC_Config_Maker
             this.fanSpeedTB.Name = "fanSpeedTB";
             this.fanSpeedTB.Size = new System.Drawing.Size(168, 45);
             this.fanSpeedTB.TabIndex = 0;
+            this.fanSpeedTB.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.fanSpeedTB.Value = 4;
             // 
-            // aiCB
+            // label5
             // 
-            this.aiCB.AutoSize = true;
-            this.aiCB.Checked = true;
-            this.aiCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.aiCB.Location = new System.Drawing.Point(252, 32);
-            this.aiCB.Name = "aiCB";
-            this.aiCB.Size = new System.Drawing.Size(36, 17);
-            this.aiCB.TabIndex = 3;
-            this.aiCB.Text = "AI";
-            this.aiCB.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label5.Location = new System.Drawing.Point(31, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label6.Location = new System.Drawing.Point(55, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "2";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label7.Location = new System.Drawing.Point(103, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "4";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label8.Location = new System.Drawing.Point(79, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "3";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label9.Location = new System.Drawing.Point(149, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "6";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label10.Location = new System.Drawing.Point(125, 64);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "5";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label11.Location = new System.Drawing.Point(173, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "7";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 490);
+            this.ClientSize = new System.Drawing.Size(589, 507);
             this.Controls.Add(this.fanSpeedGB);
             this.Controls.Add(this.modesGB);
             this.Controls.Add(this.degreesGB);
@@ -531,6 +617,13 @@ namespace AC_Config_Maker
         private System.Windows.Forms.CheckBox acDisplayCB;
         public ComboBox degreeTypeCB;
         private CheckBox aiCB;
+        private Label label9;
+        private Label label10;
+        private Label label7;
+        private Label label8;
+        private Label label6;
+        private Label label5;
+        private Label label11;
     }
 }
 

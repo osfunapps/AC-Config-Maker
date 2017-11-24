@@ -6,7 +6,9 @@
 
         internal static string GetTxt()
         {
-            return "Version 1.5" +
+            return "Version 1.6" +
+                   "\n- added slider indication numbers" +
+                   "\n\nVersion 1.5" +
                    "\n- added new modes" +
                    "\n- fixed issues regarding the new modes" +
                    "\n\nVersion 1.4" +

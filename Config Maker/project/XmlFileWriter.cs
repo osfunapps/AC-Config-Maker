@@ -53,7 +53,7 @@ namespace AC_Config_Maker
             string[] parsedString = outputXmlString.Split(' ');
             foreach (string nodeVal in parsedString)
             {
-                if (nodeVal.Equals("\n")) continue;
+                if (nodeVal.Equals("\n")|| nodeVal.Equals("")) continue;
                 var strippedNode = nodeVal;
                 if(nodeVal.StartsWith("\n"))
                     strippedNode = nodeVal.Substring(1);
